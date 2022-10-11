@@ -11,14 +11,14 @@ app.use(cors());
 app.use(express.json());
 
 // Database
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.be9iv.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@atlascluster.fui4cy3.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function run() {
     try {
         await client.connect();
 
-        const database = client.db('tourist_places');
+        const database = client.db('Tourist-Places');
         const destinationCollection = database.collection('destinations');
         const orderCollection = database.collection('orders');
 
